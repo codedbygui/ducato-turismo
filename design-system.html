@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ducato Turismo | Design System</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Serif:opsz,wght@8..144,600;8..144,700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0");
+
+      :root {
+        color-scheme: light;
+
+        --ducato-black: #111111;
+        --ducato-graphite: #202020;
+        --ducato-ink: #34312c;
+        --ducato-gray-700: #5f5a52;
+        --ducato-gray-500: #8b857b;
+        --ducato-gray-300: #d9d3c7;
+        --ducato-gray-200: #e9e3d8;
+        --ducato-gray-100: #f4efe7;
+        --ducato-white: #ffffff;
+        --ducato-warm-white: #fbf8f2;
+        --ducato-gold-700: #8a5b14;
+        --ducato-gold-600: #a86e13;
+        --ducato-gold-500: #d89a27;
+        --ducato-gold-400: #e7b24a;
+        --ducato-gold-300: #f1c15a;
+        --ducato-blue-500: #2ca7d9;
+        --ducato-blue-600: #1683b2;
+        --ducato-success: #237a4b;
+        --ducato-warning: #a86405;
+        --ducato-error: #ba1a1a;
+
+        --md-sys-color-primary: var(--ducato-gold-600);
+        --md-sys-color-on-primary: var(--ducato-white);
+        --md-sys-color-primary-container: #ffe0a7;
+        --md-sys-color-on-primary-container: #2d1800;
+        --md-sys-color-secondary: var(--ducato-graphite);
+        --md-sys-color-on-secondary: var(--ducato-white);
+        --md-sys-color-secondary-container: #e8e1d5;
+        --md-sys-color-on-secondary-container: #1f1b16;
+        --md-sys-color-tertiary: var(--ducato-blue-600);
+        --md-sys-color-on-tertiary: var(--ducato-white);
+        --md-sys-color-background: var(--ducato-warm-white);
+        --md-sys-color-on-background: var(--ducato-ink);
+        --md-sys-color-surface: var(--ducato-white);
+        --md-sys-color-on-surface: var(--ducato-ink);
+        --md-sys-color-surface-variant: var(--ducato-gray-100);
+        --md-sys-color-on-surface-variant: var(--ducato-gray-700);
+        --md-sys-color-outline: var(--ducato-gray-300);
+        --md-sys-color-error: var(--ducato-error);
+
+        --font-body: "Roboto", Arial, sans-serif;
+        --font-display: "Roboto Serif", Georgia, serif;
+
+        --space-1: 4px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 24px;
+        --space-6: 32px;
+        --space-7: 48px;
+        --space-8: 64px;
+
+        --radius-xs: 4px;
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 24px;
+        --shadow-1: 0 1px 2px rgb(17 17 17 / 10%), 0 1px 3px rgb(17 17 17 / 8%);
+        --shadow-2: 0 2px 6px rgb(17 17 17 / 12%), 0 6px 18px rgb(17 17 17 / 8%);
+        --shadow-3: 0 12px 30px rgb(17 17 17 / 14%);
+        --container: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--md-sys-color-background);
+        color: var(--md-sys-color-on-background);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--ducato-blue-600);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .material-symbols-outlined {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        line-height: 1;
+        vertical-align: middle;
+      }
+
+      .page-shell {
+        min-height: 100vh;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgb(217 211 199 / 72%);
+        background: rgb(251 248 242 / 88%);
+        backdrop-filter: blur(18px);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-5);
+        width: min(100% - 32px, var(--container));
+        min-height: 72px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        color: var(--ducato-black);
+        font-weight: 700;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: var(--radius-sm);
+        background: linear-gradient(135deg, var(--ducato-gold-300), var(--ducato-gold-600));
+        color: var(--ducato-black);
+        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+      }
+
+      .brand-title {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .brand-title strong {
+        font-size: 1.08rem;
+      }
+
+      .brand-title span {
+        color: var(--ducato-blue-600);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+
+      .nav a {
+        border-radius: 999px;
+        color: var(--ducato-gray-700);
+        font-size: 0.92rem;
+        font-weight: 500;
+        padding: 10px 12px;
+      }
+
+      .nav a:hover {
+        background: var(--ducato-gray-100);
+        color: var(--ducato-black);
+        text-decoration: none;
+      }
+
+      .hero {
+        background:
+          linear-gradient(90deg, rgb(17 17 17 / 92%), rgb(17 17 17 / 72%)),
+          linear-gradient(135deg, var(--ducato-graphite), var(--ducato-black));
+        color: var(--ducato-white);
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+        gap: var(--space-7);
+        width: min(100% - 32px, var(--container));
+        margin: 0 auto;
+        padding: 76px 0 72px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: var(--ducato-gold-300);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin: 0 0 var(--space-4);
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        line-height: 1.08;
+      }
+
+      h1 {
+        max-width: 720px;
+        font-size: clamp(2.55rem, 6vw, 5.2rem);
+        margin-bottom: var(--space-5);
+      }
+
+      h2 {
+        color: var(--ducato-black);
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        margin-bottom: var(--space-4);
+      }
+
+      h3 {
+        color: var(--ducato-black);
+        font-size: 1.55rem;
+        margin-bottom: var(--space-3);
+      }
+
+      h4 {
+        color: var(--ducato-black);
+        font-size: 1rem;
+        margin-bottom: var(--space-2);
+      }
+
+      .lead {
+        color: rgb(255 255 255 / 80%);
+        font-size: 1.16rem;
+        max-width: 720px;
+      }
+
+      .section {
+        width: min(100% - 32px, var(--container));
+        margin: 0 auto;
+        padding: var(--space-8) 0;
+      }
+
+      .section + .section {
+        border-top: 1px solid var(--ducato-gray-200);
+      }
+
+      .section-kicker {
+        color: var(--ducato-gold-700);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: var(--space-7);
+        align-items: end;
+        margin-bottom: var(--space-6);
+      }
+
+      .section-intro p {
+        color: var(--ducato-gray-700);
+        margin-bottom: 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: var(--space-4);
+      }
+
+      .grid.cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid.cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid.cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .swatch {
+        overflow: hidden;
+        border: 1px solid var(--ducato-gray-200);
+        border-radius: var(--radius-sm);
+        background: var(--ducato-white);
+        box-shadow: var(--shadow-1);
+      }
+
+      .swatch-color {
+        min-height: 94px;
+      }
+
+      .swatch-info {
+        padding: var(--space-3);
+      }
+
+      .swatch-info strong,
+      .swatch-info code {
+        display: block;
+      }
+
+      .swatch-info code {
+        color: var(--ducato-gray-700);
+        font-size: 0.82rem;
+      }
+
+      .type-scale {
+        display: grid;
+        gap: var(--space-3);
+      }
+
+      .type-row {
+        display: grid;
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: var(--space-5);
+        align-items: baseline;
+        border-bottom: 1px solid var(--ducato-gray-200);
+        padding: var(--space-4) 0;
+      }
+
+      .type-row small {
+        color: var(--ducato-gray-700);
+        font-weight: 500;
+      }
+
+      .display-large {
+        font-family: var(--font-display);
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .headline-medium {
+        font-family: var(--font-display);
+        font-size: 2.4rem;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1.12;
+      }
+
+      .title-large {
+        font-size: 1.35rem;
+        font-weight: 700;
+      }
+
+      .body-large {
+        color: var(--ducato-gray-700);
+        font-size: 1.05rem;
+      }
+
+      .label-large {
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .button-row,
+      .component-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        min-height: 44px;
+        border: 0;
+        border-radius: 999px;
+        cursor: pointer;
+        font: 700 0.94rem / 1 var(--font-body);
+        padding: 0 20px;
+        transition:
+          transform 160ms ease,
+          box-shadow 160ms ease,
+          background 160ms ease;
+        white-space: nowrap;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        box-shadow: var(--shadow-1);
+      }
+
+      .btn-primary:hover {
+        background: var(--ducato-gold-700);
+        box-shadow: var(--shadow-2);
+      }
+
+      .btn-secondary {
+        background: var(--ducato-graphite);
+        color: var(--ducato-white);
+      }
+
+      .btn-tonal {
+        background: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+      }
+
+      .btn-outlined {
+        border: 1px solid var(--ducato-gray-300);
+        background: transparent;
+        color: var(--ducato-ink);
+      }
+
+      .btn-text {
+        background: transparent;
+        color: var(--ducato-gold-700);
+        padding-inline: 12px;
+      }
+
+      .icon-btn {
+        display: inline-grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        background: var(--ducato-white);
+        color: var(--ducato-ink);
+        cursor: pointer;
+        box-shadow: var(--shadow-1);
+      }
+
+      .icon-btn.dark {
+        background: rgb(255 255 255 / 10%);
+        color: var(--ducato-white);
+        box-shadow: none;
+      }
+
+      .hero-panel {
+        align-self: end;
+        border: 1px solid rgb(255 255 255 / 12%);
+        border-radius: var(--radius-lg);
+        background: rgb(255 255 255 / 8%);
+        padding: var(--space-5);
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-3);
+      }
+
+      .metric {
+        border-radius: var(--radius-sm);
+        background: rgb(255 255 255 / 8%);
+        padding: var(--space-4);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--ducato-gold-300);
+        font-family: var(--font-display);
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .metric span {
+        color: rgb(255 255 255 / 75%);
+        font-size: 0.85rem;
+      }
+
+      .card {
+        border: 1px solid var(--ducato-gray-200);
+        border-radius: var(--radius-sm);
+        background: var(--md-sys-color-surface);
+        box-shadow: var(--shadow-1);
+        padding: var(--space-5);
+      }
+
+      .card.elevated {
+        box-shadow: var(--shadow-2);
+      }
+
+      .card.dark {
+        border-color: rgb(255 255 255 / 12%);
+        background: var(--ducato-graphite);
+        color: var(--ducato-white);
+      }
+
+      .card.dark h3,
+      .card.dark h4 {
+        color: var(--ducato-white);
+      }
+
+      .card p {
+        color: var(--ducato-gray-700);
+        margin-bottom: 0;
+      }
+
+      .card.dark p {
+        color: rgb(255 255 255 / 74%);
+      }
+
+      .card-icon {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        margin-bottom: var(--space-4);
+        border-radius: var(--radius-sm);
+        background: var(--md-sys-color-primary-container);
+        color: var(--ducato-gold-700);
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        min-height: 34px;
+        border: 1px solid var(--ducato-gray-300);
+        border-radius: var(--radius-sm);
+        background: var(--ducato-white);
+        color: var(--ducato-ink);
+        font-size: 0.86rem;
+        font-weight: 500;
+        padding: 0 12px;
+      }
+
+      .chip.selected {
+        border-color: var(--ducato-gold-500);
+        background: var(--md-sys-color-primary-container);
+      }
+
+      .field {
+        display: grid;
+        gap: var(--space-2);
+      }
+
+      .field label {
+        color: var(--ducato-gray-700);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .input,
+      .select,
+      .textarea {
+        width: 100%;
+        border: 1px solid var(--ducato-gray-300);
+        border-radius: var(--radius-xs);
+        background: var(--ducato-white);
+        color: var(--ducato-ink);
+        font: 400 1rem / 1.35 var(--font-body);
+        outline: 0;
+        padding: 13px 14px;
+      }
+
+      .textarea {
+        min-height: 118px;
+        resize: vertical;
+      }
+
+      .input:focus,
+      .select:focus,
+      .textarea:focus {
+        border-color: var(--ducato-gold-600);
+        box-shadow: 0 0 0 3px rgb(216 154 39 / 18%);
+      }
+
+      .helper {
+        color: var(--ducato-gray-700);
+        font-size: 0.82rem;
+      }
+
+      .radio-group {
+        display: grid;
+        gap: var(--space-2);
+      }
+
+      .choice {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: var(--ducato-ink);
+        font-weight: 500;
+      }
+
+      .choice input {
+        accent-color: var(--ducato-gold-600);
+        width: 18px;
+        height: 18px;
+      }
+
+      .switch {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-3);
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .switch input {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .switch-track {
+        position: relative;
+        width: 48px;
+        height: 28px;
+        border-radius: 999px;
+        background: var(--ducato-gray-300);
+        transition: background 160ms ease;
+      }
+
+      .switch-track::after {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--ducato-white);
+        box-shadow: var(--shadow-1);
+        content: "";
+        transition: transform 160ms ease;
+      }
+
+      .switch input:checked + .switch-track {
+        background: var(--ducato-gold-600);
+      }
+
+      .switch input:checked + .switch-track::after {
+        transform: translateX(20px);
+      }
+
+      .tabs {
+        display: flex;
+        gap: var(--space-2);
+        border-bottom: 1px solid var(--ducato-gray-200);
+      }
+
+      .tab {
+        position: relative;
+        border: 0;
+        background: transparent;
+        color: var(--ducato-gray-700);
+        cursor: pointer;
+        font: 700 0.94rem / 1 var(--font-body);
+        padding: 14px 16px;
+      }
+
+      .tab.active {
+        color: var(--ducato-black);
+      }
+
+      .tab.active::after {
+        position: absolute;
+        right: 12px;
+        bottom: -1px;
+        left: 12px;
+        height: 3px;
+        border-radius: 999px 999px 0 0;
+        background: var(--ducato-gold-500);
+        content: "";
+      }
+
+      details {
+        border: 1px solid var(--ducato-gray-200);
+        border-radius: var(--radius-sm);
+        background: var(--ducato-white);
+        padding: 0 var(--space-4);
+      }
+
+      details + details {
+        margin-top: var(--space-3);
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+        padding: var(--space-4) 0;
+      }
+
+      details p {
+        color: var(--ducato-gray-700);
+        margin-bottom: var(--space-4);
+      }
+
+      .banner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: var(--space-5);
+        align-items: center;
+        border: 1px solid rgb(216 154 39 / 28%);
+        border-radius: var(--radius-md);
+        background: linear-gradient(135deg, #fff8e6, var(--ducato-white));
+        padding: var(--space-5);
+      }
+
+      .snackbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-4);
+        max-width: 520px;
+        border-radius: var(--radius-xs);
+        background: var(--ducato-graphite);
+        color: var(--ducato-white);
+        padding: var(--space-3) var(--space-4);
+        box-shadow: var(--shadow-3);
+      }
+
+      .cookie-panel {
+        border: 1px solid var(--ducato-gray-200);
+        border-radius: var(--radius-lg);
+        background: var(--ducato-white);
+        box-shadow: var(--shadow-3);
+        padding: var(--space-5);
+      }
+
+      .cookie-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: var(--space-4);
+        align-items: center;
+        border-top: 1px solid var(--ducato-gray-200);
+        padding: var(--space-4) 0;
+      }
+
+      .cookie-row:first-of-type {
+        border-top: 0;
+      }
+
+      .table-wrap {
+        overflow: auto;
+        border: 1px solid var(--ducato-gray-200);
+        border-radius: var(--radius-sm);
+        background: var(--ducato-white);
+      }
+
+      table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid var(--ducato-gray-200);
+        padding: 14px 16px;
+        text-align: left;
+      }
+
+      th {
+        background: var(--ducato-gray-100);
+        color: var(--ducato-black);
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 0 10px;
+      }
+
+      .status.active {
+        background: #dcf4e7;
+        color: var(--ducato-success);
+      }
+
+      .status.info {
+        background: #daf1fb;
+        color: var(--ducato-blue-600);
+      }
+
+      .status.warning {
+        background: #ffe6bf;
+        color: var(--ducato-warning);
+      }
+
+      .footer {
+        background: var(--ducato-black);
+        color: rgb(255 255 255 / 78%);
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: var(--space-6);
+        width: min(100% - 32px, var(--container));
+        margin: 0 auto;
+        padding: var(--space-7) 0;
+      }
+
+      .footer strong {
+        color: var(--ducato-white);
+      }
+
+      @media (max-width: 920px) {
+        .nav {
+          display: none;
+        }
+
+        .hero-inner,
+        .section-intro,
+        .grid.cols-2,
+        .grid.cols-3,
+        .grid.cols-4,
+        .footer-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-inner {
+          padding: 56px 0;
+        }
+
+        .type-row {
+          grid-template-columns: 1fr;
+          gap: var(--space-2);
+        }
+
+        .banner,
+        .cookie-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .topbar-inner,
+        .section,
+        .hero-inner,
+        .footer-inner {
+          width: min(100% - 24px, var(--container));
+        }
+
+        .button-row,
+        .component-row {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .display-large {
+          font-size: 2.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="#visao">
+            <span class="brand-mark">
+              <span class="material-symbols-outlined" aria-hidden="true">flight_takeoff</span>
+            </span>
+            <span class="brand-title">
+              <strong>Ducato Turismo</strong>
+              <span>Corporate Travel</span>
+            </span>
+          </a>
+          <nav class="nav" aria-label="Navegação principal">
+            <a href="#cores">Cores</a>
+            <a href="#tipografia">Tipografia</a>
+            <a href="#componentes">Componentes</a>
+            <a href="#formularios">Formulários</a>
+            <a href="#cookies">Cookies</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="visao">
+          <div class="hero-inner">
+            <div>
+              <p class="eyebrow">
+                <span class="material-symbols-outlined" aria-hidden="true">business_center</span>
+                Material Design adaptado para B2B
+              </p>
+              <h1>Design system institucional para gestão de viagens corporativas.</h1>
+              <p class="lead">
+                Uma base visual sóbria, consultiva e premium para reconstruir o site da Ducato Turismo preservando navegação, formulários, links externos, cookies e serviços atuais.
+              </p>
+              <div class="button-row" style="margin-top: 32px">
+                <button class="btn btn-primary">
+                  <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                  Falar com a Ducato
+                </button>
+                <button class="btn btn-tonal">
+                  <span class="material-symbols-outlined" aria-hidden="true">description</span>
+                  Ver apresentação
+                </button>
+                <button class="icon-btn dark" aria-label="Abrir loja">
+                  <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                </button>
+              </div>
+            </div>
+            <aside class="hero-panel" aria-label="Princípios de marca">
+              <h3 style="color: white">Princípios</h3>
+              <div class="metric-grid">
+                <div class="metric">
+                  <strong>B2B</strong>
+                  <span>Comunicação corporativa e objetiva</span>
+                </div>
+                <div class="metric">
+                  <strong>30+</strong>
+                  <span>Anos de experiência no segmento</span>
+                </div>
+                <div class="metric">
+                  <strong>24h</strong>
+                  <span>Suporte e emergência em viagens</span>
+                </div>
+                <div class="metric">
+                  <strong>Vale</strong>
+                  <span>Vale Viagem Ducato</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" id="cores">
+          <div class="section-intro">
+            <div>
+              <p class="section-kicker">Tokens</p>
+              <h2>Paleta de cores</h2>
+            </div>
+            <p>
+              Preto, branco e dourado sustentam a identidade institucional. O azul do logotipo aparece como cor terciária e funcional, reservado para informação, tecnologia e links externos.
+            </p>
+          </div>
+
+          <div class="grid cols-4">
+            <article class="swatch">
+              <div class="swatch-color" style="background: #111111"></div>
+              <div class="swatch-info"><strong>Black</strong><code>#111111</code></div>
+            </article>
+            <article class="swatch">
+              <div class="swatch-color" style="background: #202020"></div>
+              <div class="swatch-info"><strong>Graphite</strong><code>#202020</code></div>
+            </article>
+            <article class="swatch">
+              <div class="swatch-color" style="background: #fbf8f2"></div>
+              <div class="swatch-info"><strong>Warm White</strong><code>#FBF8F2</code></div>
+            </article>
+            <article class="swatch">
+              <div class="swatch-color" style="background: #ffffff"></div>
+              <div class="swatch-info"><strong>White</strong><code>#FFFFFF</code></div>
+            </article>
+            <article class="swatch">
+              <div class="swatch-color" style="background: #8a5b14"></div>
+              <div class="swatch-info"><strong>Gold 700</strong><code>#8A5B14</code></div>
+            </article>
+            <article class="swatch">
+              <div class="swatch-color" style="background: #a86e13"></div>
+              <div class="swatch-info"><strong>Gold 600</strong><code>#A86E13</code></div>
+            </article>
+            <article class="swatch">
+              <div class="swatch-color" style="background: #d89a27"></div>
+              <div class="swatch-info"><strong>Gold 500</strong><code>#D89A27</code></div>
+            </article>
+            <article class="swatch">
+              <div class="swatch-color" style="background: #2ca7d9"></div>
+              <div class="swatch-info"><strong>Blue 500</strong><code>#2CA7D9</code></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="tipografia">
+          <div class="section-intro">
+            <div>
+              <p class="section-kicker">Material type scale</p>
+              <h2>Tipografia</h2>
+            </div>
+            <p>
+              Roboto mantém coerência com Material Design. Roboto Serif entra apenas em títulos institucionais para reforçar maturidade, tradição e confiança.
+            </p>
+          </div>
+
+          <div class="type-scale">
+            <div class="type-row">
+              <small>Display Large</small>
+              <div class="display-large">Gestão de viagens</div>
+            </div>
+            <div class="type-row">
+              <small>Headline Medium</small>
+              <div class="headline-medium">Atendimento consultivo para empresas.</div>
+            </div>
+            <div class="type-row">
+              <small>Title Large</small>
+              <div class="title-large">Sistema de reservas online</div>
+            </div>
+            <div class="type-row">
+              <small>Body Large</small>
+              <div class="body-large">Processos mais rápidos, políticas de viagem configuráveis, relatórios gerenciais e suporte para usuários e aprovadores.</div>
+            </div>
+            <div class="type-row">
+              <small>Label Large</small>
+              <div class="label-large">CONSULTORIA CORPORATIVA</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="componentes">
+          <div class="section-intro">
+            <div>
+              <p class="section-kicker">Componentes</p>
+              <h2>Botões, cards e chips</h2>
+            </div>
+            <p>
+              Componentes com base Material: estados claros, toque confortável, raio moderado e sombras discretas. O dourado deve destacar ações importantes sem dominar a interface.
+            </p>
+          </div>
+
+          <div class="grid cols-2">
+            <article class="card">
+              <h3>Botões</h3>
+              <div class="button-row">
+                <button class="btn btn-primary">
+                  <span class="material-symbols-outlined" aria-hidden="true">send</span>
+                  Primário
+                </button>
+                <button class="btn btn-secondary">Secundário</button>
+                <button class="btn btn-tonal">Tonal</button>
+                <button class="btn btn-outlined">Outlined</button>
+                <button class="btn btn-text">Text</button>
+                <button class="icon-btn" aria-label="Pesquisar">
+                  <span class="material-symbols-outlined" aria-hidden="true">search</span>
+                </button>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Chips de ferramentas</h3>
+              <div class="component-row">
+                <span class="chip selected">
+                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                  ARGO
+                </span>
+                <span class="chip">Reserva Fácil</span>
+                <span class="chip">Reserve</span>
+                <span class="chip">Wooba</span>
+                <span class="chip">TMS</span>
+              </div>
+            </article>
+
+            <article class="card elevated">
+              <span class="card-icon">
+                <span class="material-symbols-outlined" aria-hidden="true">corporate_fare</span>
+              </span>
+              <h3>Corporativo</h3>
+              <p>Serviços personalizados para empresas com gestão de políticas, reservas online, relatórios e negociação de acordos comerciais.</p>
+            </article>
+
+            <article class="card dark">
+              <span class="card-icon">
+                <span class="material-symbols-outlined" aria-hidden="true">event</span>
+              </span>
+              <h3>Eventos e Incentivos</h3>
+              <p>Planejamento, logística, comunicação visual, transfers, experiências e campanhas de incentivo para equipes e parceiros.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="formularios">
+          <div class="section-intro">
+            <div>
+              <p class="section-kicker">Entrada de dados</p>
+              <h2>Formulários</h2>
+            </div>
+            <p>
+              Campos e escolhas seguem padrões Material para preservar clareza e acessibilidade, especialmente na pesquisa de satisfação e nos fluxos de contato.
+            </p>
+          </div>
+
+          <div class="grid cols-2">
+            <form class="card" aria-label="Exemplo de formulário de contato">
+              <h3>Contato corporativo</h3>
+              <div class="grid">
+                <div class="field">
+                  <label for="nome">Nome</label>
+                  <input class="input" id="nome" placeholder="Seu nome" />
+                </div>
+                <div class="field">
+                  <label for="empresa">Empresa</label>
+                  <input class="input" id="empresa" placeholder="Nome da empresa" />
+                </div>
+                <div class="field">
+                  <label for="servico">Serviço de interesse</label>
+                  <select class="select" id="servico">
+                    <option>Gestão de viagens corporativas</option>
+                    <option>Eventos e incentivos</option>
+                    <option>Lazer</option>
+                    <option>Vale Viagem</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="mensagem">Mensagem</label>
+                  <textarea class="textarea" id="mensagem" placeholder="Conte rapidamente sua necessidade"></textarea>
+                  <span class="helper">Resposta por telefone ou e-mail comercial.</span>
+                </div>
+                <button class="btn btn-primary" type="button">
+                  <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                  Enviar contato
+                </button>
+              </div>
+            </form>
+
+            <article class="card">
+              <h3>Pesquisa de satisfação</h3>
+              <p style="margin-bottom: 18px">Como você classifica o atendimento realizado?</p>
+              <div class="radio-group" role="radiogroup" aria-label="Classificação">
+                <label class="choice"><input type="radio" name="rate" checked /> Ótimo</label>
+                <label class="choice"><input type="radio" name="rate" /> Bom</label>
+                <label class="choice"><input type="radio" name="rate" /> Regular</label>
+                <label class="choice"><input type="radio" name="rate" /> Ruim</label>
+              </div>
+              <div class="tabs" style="margin-top: 28px">
+                <button class="tab active">Atendimento</button>
+                <button class="tab">Comentários</button>
+                <button class="tab">Contato</button>
+              </div>
+              <div class="button-row" style="margin-top: 22px">
+                <button class="btn btn-outlined">Voltar</button>
+                <button class="btn btn-primary">Próximo</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-intro">
+            <div>
+              <p class="section-kicker">Conteúdo institucional</p>
+              <h2>Listas, accordions e tabelas</h2>
+            </div>
+            <p>
+              Estruturas para organizar informação densa sem perder legibilidade: serviços, políticas, ferramentas, diferenciais e dados operacionais.
+            </p>
+          </div>
+
+          <div class="grid cols-2">
+            <div>
+              <details open>
+                <summary>Gestão de viagens corporativas</summary>
+                <p>Análise de perfil, programas de gerenciamento, suporte emergencial, serviços acessórios, política de viagens e relatórios.</p>
+              </details>
+              <details>
+                <summary>Sistema gerenciador self booking</summary>
+                <p>Consulta, reserva, aprovação, emissão, pré-faturamento e controle por centro de custo.</p>
+              </details>
+              <details>
+                <summary>Eventos corporativos</summary>
+                <p>Reuniões, workshops, seminários, treinamentos, confraternizações, campanhas de incentivo e logística.</p>
+              </details>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Uso</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Apresentação institucional</td>
+                    <td>Link para PDF</td>
+                    <td><span class="status active">Preservar</span></td>
+                  </tr>
+                  <tr>
+                    <td>Loja</td>
+                    <td>Link externo</td>
+                    <td><span class="status info">Externo</span></td>
+                  </tr>
+                  <tr>
+                    <td>Vale Viagem</td>
+                    <td>Consulta de saldo</td>
+                    <td><span class="status warning">Validar fluxo</span></td>
+                  </tr>
+                  <tr>
+                    <td>Pesquisa</td>
+                    <td>Formulário em etapas</td>
+                    <td><span class="status active">Recriar</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="cookies">
+          <div class="section-intro">
+            <div>
+              <p class="section-kicker">LGPD</p>
+              <h2>Consentimento de cookies</h2>
+            </div>
+            <p>
+              Modelo visual para preservar as categorias atuais: essenciais, preferências, funcionais e analíticos, com ações de aceitar, rejeitar e salvar preferências.
+            </p>
+          </div>
+
+          <div class="grid cols-2">
+            <article class="cookie-panel">
+              <h3>Preferências de privacidade</h3>
+              <p style="color: var(--ducato-gray-700)">Utilizamos cookies para melhorar sua experiência, exibir conteúdos de vídeo e mapas, e analisar o tráfego de forma agregada.</p>
+              <div class="cookie-row">
+                <div>
+                  <h4>Essenciais</h4>
+                  <span class="helper">Necessários para o funcionamento básico.</span>
+                </div>
+                <span class="status active">Sempre ativo</span>
+              </div>
+              <div class="cookie-row">
+                <div>
+                  <h4>Funcionais</h4>
+                  <span class="helper">YouTube, Vimeo e Google Maps.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="switch-track"></span>
+                </label>
+              </div>
+              <div class="cookie-row">
+                <div>
+                  <h4>Analíticos</h4>
+                  <span class="helper">Dados agregados e anonimizados.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="switch-track"></span>
+                </label>
+              </div>
+              <div class="button-row" style="margin-top: 18px">
+                <button class="btn btn-primary">Aceitar</button>
+                <button class="btn btn-outlined">Rejeitar</button>
+                <button class="btn btn-text">Salvar preferências</button>
+              </div>
+            </article>
+
+            <div>
+              <div class="banner">
+                <div>
+                  <h3>Vale Viagem</h3>
+                  <p>Área de destaque para produtos que precisam de CTA claro, como consulta de saldo, contato ou solicitação corporativa.</p>
+                </div>
+                <button class="btn btn-primary">
+                  <span class="material-symbols-outlined" aria-hidden="true">redeem</span>
+                  Consultar saldo
+                </button>
+              </div>
+
+              <div class="snackbar" style="margin-top: 24px">
+                <span>Preferências salvas com sucesso.</span>
+                <button class="btn btn-text" style="color: var(--ducato-gold-300)">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div>
+            <strong>Ducato Turismo</strong>
+            <p style="margin: 8px 0 0">Gestão de viagens corporativas, eventos, incentivos, lazer e vale viagem.</p>
+          </div>
+          <div>
+            <strong>Contato</strong>
+            <p style="margin: 8px 0 0">+55 11 3796 6790<br />sac@ducatoturismo.com.br</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
